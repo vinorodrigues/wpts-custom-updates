@@ -137,7 +137,7 @@ function ts_atpu_admin_menu() {
 	if ( function_exists('add_tecsmith_page') )
 		add_tecsmith_page(
 			__('TS Custom Updates'),
-			__('Updates'),
+			__('Update Settings'),
 			'manage_options',
 			ATPU_PLUGIN_SLUG,
 			'ts_atpu_admin_options_page',
@@ -182,7 +182,7 @@ function ts_atpu_settings_link($links) {
 	if ( function_exists('add_tecsmith_page') ) $link = 'admin.php';
 	else $link = 'plugins.php';
 	$link .= '?page='.ATPU_PLUGIN_SLUG;
-	$link = '<a href="'.esc_url( get_admin_url(null, $link) ).'">Settings</a>';
+	$link = '<a href="'.esc_url( get_admin_url(null, $link) ).'">'.__('Settings').'</a>';
 	array_unshift($links, $link);
 	return $links;
 }

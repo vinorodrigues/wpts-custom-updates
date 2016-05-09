@@ -4,10 +4,11 @@
  * Plugin URI: http://tecsmith.com.au
  * Description: Self hosted custom updates plugin
  * Author: Vino Rodrigues
- * Version: 0.9.3
+ * Version: 0.9.4
  * Author URI: http://vinorodrigues.com
  *
  * Based on: http://konstruktors.com/blog/wordpress/2538-automatic-updates-for-plugins-and-themes-hosted-outside-wordpress-extend/
+ * See also: http://code.tutsplus.com/tutorials/communicating-with-the-wordpressorg-plugin-api--wp-33069
  *
  * @author Vino Rodrigues
  * @package WPTS-Custom-Updates
