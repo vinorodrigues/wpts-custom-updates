@@ -11,7 +11,7 @@
 
 
 if (!defined('ATPU_PLUGIN_SLUG'))
-	define( 'ATPU_PLUGIN_SLUG', str_replace( ' ', '%20', plugins_url( '', __FILE__ ) ) );
+	define( 'ATPU_PLUGIN_SLUG', basename( str_replace( ' ', '%20', plugins_url( '', __FILE__ ) ) ) );
 
 
 @include_once 'inc/lib-ts/opt-common.php';
@@ -136,19 +136,19 @@ function ts_atpu_options_validate( $input ) {
 function ts_atpu_admin_menu() {
 	if ( function_exists('add_tecsmith_page') )
 		add_tecsmith_page(
-			__('Automatic Theme & Plugin Update Options'),
+			__('TS Custom Updates'),
 			__('Updates'),
 			'manage_options',
-			'ts-atpu',
+			ATPU_PLUGIN_SLUG,
 			'ts_atpu_admin_options_page',
 			'dashicons-admin-generic',
 			999 );
 	else
 		add_plugins_page(
-			__('Automatic Theme & Plugin Update Options'),
-			__('Updates'),
+			__('TS Custom Updates'),
+			__('TS Updates'),
 			'manage_options',
-			'ts-atpu',
+			ATPU_PLUGIN_SLUG,
 			'ts_atpu_admin_options_page',
 			'dashicons-admin-generic',
 			999 );
@@ -173,6 +173,21 @@ function ts_atpu_load_options() {
 }
 
 add_action( 'admin_init', 'ts_atpu_load_options');
+
+
+/**
+ * Plugin page settings link
+ */
+function ts_atpu_settings_link($links) {
+	if ( function_exists('add_tecsmith_page') ) $link = 'admin.php';
+	else $link = 'plugins.php';
+	$link .= '?page='.ATPU_PLUGIN_SLUG;
+	$link = '<a href="'.esc_url( get_admin_url(null, $link) ).'">Settings</a>';
+	array_unshift($links, $link);
+	return $links;
+}
+
+add_filter( 'plugin_action_links_'.dirname(plugin_basename(__FILE__)).'/custom-updates.php', 'ts_atpu_settings_link' );
 
 
 /* eof */
