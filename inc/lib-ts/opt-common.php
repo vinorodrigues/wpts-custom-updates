@@ -71,7 +71,7 @@ function ts_top_admin_options_page() {
 	<i class="dashicons dashicons-email"></i> &lt;<a href="mailto:hello@tecsmith.com.au">hello@tecsmith.com.au</a>&gt;<br>
 	<i class="dashicons dashicons-twitter"></i> <a href="http://twitter.com/tcsmth" target="_blank">@tcsmth</a><br>
 	</p>
-	<?
+	<?php
 
 	echo '</div>';
 }
